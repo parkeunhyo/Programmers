@@ -1,22 +1,14 @@
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = {};
+        int[] answer = new int[num_list.length+1];
         int num = 0;
-        int a = num_list.length;
-        if (num_list[a - 1] > num_list[a - 2]) {
-            num = num_list[a - 1] - num_list[a - 2];
-        } else {
-            num = num_list[a - 1] * 2;
+        
+        for(int i=0; i<num_list.length; i++){
+            answer[i] = num_list[i];
         }
-        System.out.println(num);
-        answer = new int[a+1];
-        for(int i=0; i<answer.length; i++){
-            if(i==answer.length-1){
-                answer[i]=num;
-            }else{
-                answer[i] = num_list[i];
-            }
-        }
+        int a = num_list[num_list.length-1];
+        int b = num_list[num_list.length-2];
+        answer[answer.length-1] = a>b ? a-b : a*2;
         return answer;
     }
 }
