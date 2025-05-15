@@ -5,16 +5,16 @@ class Solution {
             int s = queries[i][0];
             int e = queries[i][1];
             int k = queries[i][2];
-            int min = 1000000;
+            int min = Integer.MAX_VALUE;
+            boolean b = false;
             for(int j=s; j<=e; j++){
                 if(arr[j]>k && arr[j]<min){
                     min = arr[j];
+                    b = true;
                 }
             }
-            if(min == 1000000){
-                min = -1;
-            }
-            answer[i] = min;
+
+            answer[i] = b?min:-1;
         }
         return answer;
     }
